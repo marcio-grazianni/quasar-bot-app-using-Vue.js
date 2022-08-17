@@ -1,0 +1,79 @@
+.bottom-input-chat {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.my-input {
+  width: 80%;
+  margin: 0.2rem auto 1.2rem;
+  position: relative;
+}
+
+.my-input .q-field__after {
+  position: absolute;
+  right: 0;
+}
+
+.my-input-number {
+  position: absolute;
+  bottom: -5rem;
+  width: 15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 1s;
+}
+
+.my-input-number.open {
+  bottom: 4rem !important;
+}
+
+.my-input-number .q-field__after {
+  position: absolute;
+  right: 0.5rem;
+}
+
+.my-input-number input {
+  font-size: 1.5rem;
+}
+
+.my-input-number .q-field__prefix {
+  font-size: 1.6rem;
+  margin-right: 0.25rem;
+}
+
+.my-input-number input::-webkit-outer-spin-button,
+.my-input-number input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.my-input-number input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.q-message-text:last-child {
+  min-height: auto !important;
+}
+
+.my-ml {
+  margin-left: 15rem;
+}
+
+.my-mr {
+  margin-right: 15rem;
+}
+
+.my-btn {
+  line-height: 1 !important;
+  min-height: 0 !important;
+}
+
+.q-page {
+  position: relative;
+  overflow: hidden;
+  margin: 1rem;
+}
