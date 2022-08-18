@@ -20,10 +20,11 @@
               v-if="c.button"
               flat
               color="black"
-              @click="openPrice = true"
+              @click="funOpenPrice()"
               class="my-btn"
+              :disable="c.button.split('_')[1] == 'disable'"
             >
-              {{ c.button }}
+              {{ c.button.split('_')[0] }}
             </q-btn>
           </div></q-chat-message
         >
@@ -238,13 +239,7 @@ export default defineComponent({
         }, 800);
         timeoutId.value = setTimeout(() => {
           openPrice.value = false;
-          if (
-            !chat.value.filter(
-              (e) =>
-                e.text ==
-                'You should hurry to add price. Do you want to add a price?'
-            ).length
-          ) {
+          if (!chat.value.filter((e) => e.button == 'Yes').length) {
             chat.value.push({
               text: 'You should hurry to add price. Do you want to add a price?',
               sent: false,
@@ -280,7 +275,16 @@ export default defineComponent({
         if (price.value) {
           replyBotFun(`${price.value}$`, true, 'price', '', 0);
           openPrice.value = false;
+          chat.value.map((e) => {
+            if (e.button === 'Yes') {
+              e.button = 'Yes_disable';
+            }
+          });
         }
+      },
+      funOpenPrice() {
+        console.log(chat.value);
+        openPrice.value = true;
       },
     };
   },
@@ -337,6 +341,14 @@ export default defineComponent({
 }
 .q-message-text:last-child {
   min-height: auto !important;
+}
+@media only screen and (max-width: 900px) {
+  .my-ml {
+    margin-left: 1rem !important;
+  }
+  .my-mr {
+    margin-right: 1rem !important;
+  }
 }
 .my-ml {
   margin-left: 15rem;
