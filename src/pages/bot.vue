@@ -20,11 +20,10 @@
               v-if="c.button"
               flat
               color="black"
-              @click="funOpenPrice()"
+              @click="openPrice = true"
               class="my-btn"
-              :disable="c.button.split('_')[1] == 'disable'"
             >
-              {{ c.button.split('_')[0] }}
+              {{ c.button }}
             </q-btn>
           </div></q-chat-message
         >
@@ -239,7 +238,13 @@ export default defineComponent({
         }, 800);
         timeoutId.value = setTimeout(() => {
           openPrice.value = false;
-          if (!chat.value.filter((e) => e.button == 'Yes').length) {
+          if (
+            !chat.value.filter(
+              (e) =>
+                e.text ==
+                'You should hurry to add price. Do you want to add a price?'
+            ).length
+          ) {
             chat.value.push({
               text: 'You should hurry to add price. Do you want to add a price?',
               sent: false,
@@ -275,16 +280,7 @@ export default defineComponent({
         if (price.value) {
           replyBotFun(`${price.value}$`, true, 'price', '', 0);
           openPrice.value = false;
-          chat.value.map((e) => {
-            if (e.button === 'Yes') {
-              e.button = 'Yes_disable';
-            }
-          });
         }
-      },
-      funOpenPrice() {
-        console.log(chat.value);
-        openPrice.value = true;
       },
     };
   },
