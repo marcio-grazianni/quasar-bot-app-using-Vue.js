@@ -64,9 +64,7 @@
         standout
         @keyup.enter.prevent="sent()"
       >
-        <template v-slot:after>
-          <q-btn dense flat icon="send" @click="sent()" color="primary" />
-        </template>
+      
       </q-input>
       <q-linear-progress size="xs" :value="progressPrice" color="primary" />
     </div>
