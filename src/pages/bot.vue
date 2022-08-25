@@ -43,19 +43,7 @@
         </q-chat-message>
       </div>
     </div>
-    <div class="bottom-input-chat" v-if="!endChat && !openPrice">
-      <q-input
-        v-model="message"
-        label="Message"
-        dense
-        class="my-input"
-        @keyup.enter.prevent="sent()"
-      >
-        <template v-slot:after>
-          <q-btn round dense flat icon="send" @click="sent()" />
-        </template>
-      </q-input>
-    </div>
+   
     <div v-if="!endChat" class="my-input-number" :class="{ open: openPrice }">
       <q-input
         v-model.number="price"
@@ -292,15 +280,7 @@ export default defineComponent({
   right: 0;
   background-color: #fff;
 }
-.my-input {
-  width: 80%;
-  margin: 0.2rem auto 1.2rem;
-  position: relative;
-  .q-field__after {
-    position: absolute;
-    right: 0;
-  }
-}
+
 .my-input-number {
   position: absolute;
   bottom: -5rem;
