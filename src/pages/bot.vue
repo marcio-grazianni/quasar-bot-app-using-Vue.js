@@ -316,24 +316,14 @@ export default defineComponent({
 .q-message-text:last-child {
   min-height: auto !important;
 }
-@media only screen and (max-width: 900px) {
-  .my-ml {
-    margin-left: 1rem !important;
-  }
-  .my-mr {
-    margin-right: 1rem !important;
-  }
-}
+
 .my-ml {
   margin-left: 15rem;
 }
 .my-mr {
   margin-right: 15rem;
 }
-.my-btn {
-  line-height: 1 !important;
-  min-height: 0 !important;
-}
+
 .q-page {
   position: relative;
   overflow: hidden;
