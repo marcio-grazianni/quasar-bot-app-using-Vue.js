@@ -27,13 +27,7 @@
             </q-btn>
           </div></q-chat-message
         >
-        <q-chat-message
-          avatar="https://cdn.quasar.dev/img/avatar3.jpg"
-          sent
-          v-if="message.length"
-        >
-          <q-spinner-dots size="2rem" />
-        </q-chat-message>
+        
         <q-chat-message
           avatar="../assets/bot.jpg"
           bg-color="primary"
